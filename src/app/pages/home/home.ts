@@ -10,4 +10,14 @@ import {FormularioComponente} from '../../components/formulario-componente/formu
 })
 export class Home {
 
+  scrollToContact() {
+    const contactElement = document.getElementById('contacto');
+    if (contactElement) {
+      contactElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
 }
