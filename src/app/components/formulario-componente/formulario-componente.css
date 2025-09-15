@@ -1,20 +1,326 @@
-/* Subrayado decorativo del título */
+/* Estilos para el componente de formulario */
+.contact-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+  opacity: 0.4;
+}
+
+.contact-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Título mejorado */
 .titulo-subrayado {
   position: relative;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out;
 }
+
 .titulo-subrayado::after {
   content: '';
   display: block;
-  width: 60px;
+  width: 80px;
   height: 4px;
-  background: #0d6efd;
-  margin: 10px auto 0;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  margin: 20px auto 0;
   border-radius: 2px;
+  animation: expandLine 1.5s ease-out 0.5s both;
 }
 
-/* Sombra y bordes del iframe */
+/* Tarjeta del formulario */
+.form-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #45b7d1, #96ceb4);
+}
+
+.form-card-body {
+  padding: 40px;
+}
+
+/* Grupos de entrada mejorados */
+.input-group {
+  margin-bottom: 25px;
+  position: relative;
+  animation: fadeInUp 1s ease-out;
+  animation-fill-mode: both;
+}
+
+.input-group:nth-child(1) { animation-delay: 0.3s; }
+.input-group:nth-child(2) { animation-delay: 0.4s; }
+.input-group:nth-child(3) { animation-delay: 0.5s; }
+.input-group:nth-child(4) { animation-delay: 0.6s; }
+
+.input-group-text {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  border: none !important;
+  color: white !important;
+  border-radius: 12px 0 0 12px !important;
+  transition: all 0.3s ease;
+  width: 50px;
+  justify-content: center;
+}
+
+.input-group:hover .input-group-text {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.form-control {
+  border: 2px solid #e9ecef !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 15px 20px !important;
+  font-size: 1rem !important;
+  transition: all 0.3s ease !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.form-control:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
+  background: white !important;
+  transform: translateY(-2px);
+}
+
+.form-control::placeholder {
+  color: #adb5bd !important;
+  font-style: italic;
+}
+
+/* Textarea mejorado */
+textarea.form-control {
+  border-radius: 12px !important;
+  border: 2px solid #e9ecef !important;
+  padding: 20px !important;
+  resize: vertical !important;
+  min-height: 120px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.3s ease !important;
+}
+
+textarea.form-control:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
+  background: white !important;
+  transform: translateY(-2px);
+}
+
+/* Botón mejorado */
+.btn-submit {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 15px 40px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: white !important;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  animation: fadeInUp 1s ease-out 0.7s both;
+}
+
+.btn-submit:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4) !important;
+  background: linear-gradient(135deg, #5a6fd8, #6a4190) !important;
+}
+
+.btn-submit:active {
+  transform: translateY(-1px) !important;
+}
+
+.btn-submit:disabled {
+  opacity: 0.7 !important;
+  transform: none !important;
+}
+
+/* Spinner personalizado */
+.spinner-border-sm {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-width: 2px !important;
+}
+
+/* Alertas mejoradas */
+.alert {
+  border: none !important;
+  border-radius: 15px !important;
+  padding: 20px !important;
+  margin-bottom: 25px !important;
+  animation: slideInDown 0.5s ease-out;
+}
+
+.alert-success {
+  background: linear-gradient(135deg, #d4edda, #c3e6cb) !important;
+  color: #155724 !important;
+  border-left: 4px solid #28a745 !important;
+}
+
+.alert-danger {
+  background: linear-gradient(135deg, #f8d7da, #f5c6cb) !important;
+  color: #721c24 !important;
+  border-left: 4px solid #dc3545 !important;
+}
+
+/* Mapa mejorado */
+.mapa-container {
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
 .mapa-ubicacion {
   border: 0;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 400px;
+}
+
+.mapa-ubicacion:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Efectos adicionales */
+.form-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+
+.form-card:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 0;
+  }
+  
+  .titulo-subrayado {
+    font-size: 2rem;
+  }
+  
+  .form-card-body {
+    padding: 30px 20px;
+  }
+  
+  .input-group-text {
+    width: 45px;
+  }
+  
+  .form-control {
+    padding: 12px 15px !important;
+  }
+  
+  .btn-submit {
+    padding: 12px 30px !important;
+    font-size: 1rem !important;
+  }
+  
+  .mapa-ubicacion {
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .titulo-subrayado {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .form-card-body {
+    padding: 25px 15px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
 }

@@ -1,67 +1,85 @@
   <!-- Sección de Contacto -->
-  <section id="contacto" class="container my-5">
-    <div class="row g-5 align-items-stretch">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <div class="card shadow-lg border-0 h-100">
-          <div class="card-body p-4">
-            <h2 class="fw-bold text-center mb-4 titulo-subrayado">
-              Contáctanos
-            </h2>
-            <!-- Mensaje de éxito -->
-            @if (mensajeExito) {
-              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ mensajeExito }}
-                <button type="button" class="btn-close" (click)="mensajeExito = ''" aria-label="Cerrar"></button>
-              </div>
-            }
-            
-            <!-- Mensaje de error -->
-            @if (mensajeError) {
-              <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ mensajeError }}
-                <button type="button" class="btn-close" (click)="mensajeError = ''" aria-label="Cerrar"></button>
-              </div>
-            }
-            
-            <form (ngSubmit)="onSubmit()" #formulario="ngForm">
-              <div class="mb-3 input-group">
-                <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
-                <input type="text" class="form-control" id="nombre" name="nombre" 
-                       [(ngModel)]="formData.Nombre" placeholder="Tu nombre" required>
-              </div>
-              <div class="mb-3 input-group">
-                <span class="input-group-text bg-light"><i class="bi bi-envelope"></i></span>
-                <input type="email" class="form-control" id="correo" name="correo" 
-                       [(ngModel)]="formData.Correo" placeholder="nombre@ejemplo.com" required email>
-              </div>
-              <div class="mb-3 input-group">
-                <span class="input-group-text bg-light"><i class="bi bi-chat-left-text"></i></span>
-                <input type="text" class="form-control" id="asunto" name="asunto" 
-                       [(ngModel)]="formData.Asunto" placeholder="Motivo de tu mensaje" required>
-              </div>
-              <div class="mb-3">
-                <textarea class="form-control" id="mensaje" name="mensaje" rows="5" 
-                          [(ngModel)]="formData.Mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
-              </div>
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow" [disabled]="enviando">
-                  @if (!enviando) {
-                    <span>Enviar <i class="bi bi-send ms-2"></i></span>
-                  } @else {
-                    <span class="d-flex align-items-center">
-                      <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                      Enviando...
-                    </span>
-                  }
-                </button>
-              </div>
-            </form>
+  <section id="contacto" class="contact-section">
+    <div class="container contact-container">
+      <div class="row g-5 align-items-stretch">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="form-card h-100">
+            <div class="form-card-body">
+              <h2 class="titulo-subrayado">
+                contáctenos
+              </h2>
+              <p class="text-center text-muted mb-4">Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos pronto.</p>
+              
+              <!-- Mensaje de éxito -->
+              @if (mensajeExito) {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <i class="bi bi-check-circle me-2"></i>
+                  {{ mensajeExito }}
+                  <button type="button" class="btn-close" (click)="mensajeExito = ''" aria-label="Cerrar"></button>
+                </div>
+              }
+              
+              <!-- Mensaje de error -->
+              @if (mensajeError) {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <i class="bi bi-exclamation-triangle me-2"></i>
+                  {{ mensajeError }}
+                  <button type="button" class="btn-close" (click)="mensajeError = ''" aria-label="Cerrar"></button>
+                </div>
+              }
+              
+              <form (ngSubmit)="onSubmit()" #formulario="ngForm">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person"></i></span>
+                  <input type="text" class="form-control" id="nombre" name="nombre" 
+                         [(ngModel)]="formData.Nombre" placeholder="Tu nombre completo" required>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                  <input type="email" class="form-control" id="correo" name="correo" 
+                         [(ngModel)]="formData.Correo" placeholder="tu@email.com" required email>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-chat-left-text"></i></span>
+                  <input type="text" class="form-control" id="asunto" name="asunto" 
+                         [(ngModel)]="formData.Asunto" placeholder="¿En qué podemos ayudarte?" required>
+                </div>
+                <div class="mb-4">
+                  <textarea class="form-control" id="mensaje" name="mensaje" rows="5" 
+                            [(ngModel)]="formData.Mensaje" placeholder="Cuéntanos más detalles sobre tu consulta..." required></textarea>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-submit" [disabled]="enviando">
+                    @if (!enviando) {
+                      <span>Enviar Mensaje <i class="bi bi-send ms-2"></i></span>
+                    } @else {
+                      <span class="d-flex align-items-center justify-content-center">
+                        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        Enviando...
+                      </span>
+                    }
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6 d-flex align-items-center justify-content-center">
-        <div class="w-100">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d462.3727104138737!2d-75.60429432625104!3d1.6203439051340025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sco!4v1757878721173!5m2!1ses-419!2sco" width="100%" height="350" class="mapa-ubicacion" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="col-lg-6 d-flex align-items-center justify-content-center">
+          <div class="mapa-container w-100">
+            <h3 class="text-center mb-4" style="color: #2c3e50; font-weight: 600;">
+              <i class="bi bi-geo-alt me-2"></i>Nuestra Ubicación
+            </h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d462.3727104138737!2d-75.60429432625104!3d1.6203439051340025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sco!4v1757878721173!5m2!1ses-419!2sco" 
+                    width="100%" height="400" class="mapa-ubicacion" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="text-center mt-3">
+              <p class="text-muted mb-1">
+                <i class="bi bi-clock me-1"></i>Lunes a Viernes: 8:00 AM - 6:00 PM
+              </p>
+              <p class="text-muted">
+                <i class="bi bi-telephone me-1"></i>+57 3102340024
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
