@@ -1,0 +1,20 @@
+/* Subrayado decorativo del título */
+.titulo-subrayado {
+  position: relative;
+}
+.titulo-subrayado::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #0d6efd;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Sombra y bordes del iframe */
+.mapa-ubicacion {
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
